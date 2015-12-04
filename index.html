@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Growing Toad</title>
+		<style>
+		
+		</style>
+	</head>
+	<body>
+		<center>
+		<img src="http://files.gamebanana.com/img/ico/sprays/toad_render.gif" height="496px" width="512px" id="toadstool" onmouseover="start1()" onmouseleave="end()">
+		</center>
+		<script>
+			var start_one;
+			var end_one;
+			var toadstool = document.getElementById("toadstool");
+			function start1() {
+				clearInterval(end_one);
+				start_one = setInterval(start2, 10);
+			}
+			function end(){
+				if(toadstool.height <= 200){
+					clearAll();
+				} else {
+					end1();
+				}
+			}
+			function end1() {
+				end_one = setInterval(end2, 10);
+				clearInterval(start_one);
+			}
+			function end2() {
+				if(toadstool.width >= 100){
+					toadstool.width -= 5; 
+					toadstool.height -= 5;
+				}
+			}
+			function clearAll() {
+				clearInterval(start_one);
+				clearInterval(end_one);
+			}
+			function start2() {
+				if(toadstool.width <= 900){
+					toadstool.width += 5;
+					toadstool.height += 5;
+				}
+			}
+		</script>
+	</body>
+</html>
